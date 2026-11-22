@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "flashback120",
+  "version": "${version}",
+  "name": "Flashback 1.20.1",
+  "description": "Record your gameplay, play it back and make cinematic shots. An independent reimplementation of Flashback's features for Fabric 1.20.1, not affiliated with Flashback.",
+  "authors": ["Flurben"],
+  "contact": {
+    "sources": "https://github.com/Flurben/Flashback-1.20.1",
+    "issues": "https://github.com/Flurben/Flashback-1.20.1/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/flashback120/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.flurben.flashback120.Flashback120"],
+    "modmenu": ["com.flurben.flashback120.compat.ModMenuIntegration"]
+  },
+  "accessWidener": "flashback120.accesswidener",
+  "mixins": ["flashback120.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
