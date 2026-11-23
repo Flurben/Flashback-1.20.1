@@ -62,7 +62,7 @@ public final class RecordingManager {
     /** The connection to a server (or the integrated server) was made, before the game starts. */
     public void onConnected(Connection connection) {
         if (!Config.get().autoStartRecording || current != null || ReplayHandler.isReplaying()) return;
-        if (connection == null || connection.channel() == null) return;
+        if (connection == null || connection.channel == null) return;
         try {
             Recorder r = new Recorder(Minecraft.getInstance(), connection, true, recordingDir());
             r.attach();

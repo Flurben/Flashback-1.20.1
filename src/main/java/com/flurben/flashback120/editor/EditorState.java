@@ -79,7 +79,7 @@ public final class EditorState {
     }
 
     /** What undo and redo cover: everything but the timeline view and the export settings, which have their own. */
-    String historyJson() {
+    public String historyJson() {
         JsonObject o = GSON.toJsonTree(this)
             .getAsJsonObject();
         o.remove("export");
@@ -90,7 +90,7 @@ public final class EditorState {
     }
 
     /** Puts back a state from {@link #historyJson}. */
-    void restoreHistory(String json) {
+    public void restoreHistory(String json) {
         EditorState s = fromJson(json);
         tracks = s.tracks;
         inPoint = s.inPoint;

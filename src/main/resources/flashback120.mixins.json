@@ -4,6 +4,24 @@
   "package": "com.flurben.flashback120.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "MixinBossHealthOverlay",
+    "MixinChatComponent",
+    "MixinClientHandshakePacketListenerImpl",
+    "MixinClientPacketListener",
+    "MixinEntityRenderDispatcher",
+    "MixinEntityRenderer",
+    "MixinGameRenderer",
+    "MixinGameRendererExport",
+    "MixinGui",
+    "MixinLevelChunk",
+    "MixinLevelRenderer",
+    "MixinMinecraft",
+    "MixinMinecraftFramerate",
+    "MixinMultiPlayerGameMode",
+    "MixinParticleEngine",
+    "MixinPlayerTabOverlay",
+    "MixinTimer",
+    "MixinToastComponent"
   ],
   "injectors": {
     "defaultRequire": 1

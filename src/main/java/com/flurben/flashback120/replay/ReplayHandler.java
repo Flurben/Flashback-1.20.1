@@ -921,7 +921,7 @@ public final class ReplayHandler implements PacketFilter.Listener {
 
     /** Called every frame before the world is rendered. */
     public void onRenderFrame(float partialTicks) {
-        if (mc.level == null) return;
+        if (mc.level == null || seeking) return;
         CameraEntity camera = getCamera();
         if (camera == null) return;
         double time = replayTime;
@@ -1039,6 +1039,23 @@ public final class ReplayHandler implements PacketFilter.Listener {
         VisualsApplier.apply(editor.visuals, clockDriver != null);
         // the light map is only marked for an update on world ticks, which do not run while paused
         mc.gameRenderer.lightTexture().updateLightTexture = true;
+        updateFrozenRendererState();
+    }
+
+    /**
+     * What the renderer only updates on world ticks: the field of view modifier (which starts at zero in a new client,
+     * so a replay opened from the title screen would have no field of view until it plays) and the camera's eye height.
+     */
+    private void updateFrozenRendererState() {
+        if (!paused && clockDriver == null && !seeking) return;
+        mc.gameRenderer.fov = 1.0F;
+        mc.gameRenderer.oldFov = 1.0F;
+        Entity view = mc.getCameraEntity();
+        if (view != null) {
+            net.minecraft.client.Camera camera = mc.gameRenderer.getMainCamera();
+            camera.eyeHeight = view.getEyeHeight();
+            camera.eyeHeightOld = view.getEyeHeight();
+        }
     }
 
     /** True if the entity should not be rendered (render filter / hidden entities). */

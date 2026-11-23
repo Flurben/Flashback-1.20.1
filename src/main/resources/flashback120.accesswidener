@@ -1,1 +1,52 @@
 accessWidener v2 named
+
+# packet ids
+accessible field net/minecraft/network/ConnectionProtocol flows Ljava/util/Map;
+accessible class net/minecraft/network/ConnectionProtocol$PacketSet
+
+# world snapshots
+accessible field net/minecraft/client/multiplayer/ClientPacketListener registryAccess Lnet/minecraft/core/LayeredRegistryAccess;
+accessible field net/minecraft/client/multiplayer/ClientPacketListener playerInfoMap Ljava/util/Map;
+accessible field net/minecraft/client/multiplayer/ClientPacketListener listedPlayers Ljava/util/Set;
+accessible field net/minecraft/client/multiplayer/ClientChunkCache storage Lnet/minecraft/client/multiplayer/ClientChunkCache$Storage;
+accessible class net/minecraft/client/multiplayer/ClientChunkCache$Storage
+accessible field net/minecraft/client/multiplayer/ClientChunkCache$Storage chunks Ljava/util/concurrent/atomic/AtomicReferenceArray;
+accessible method net/minecraft/tags/TagNetworkSerialization serializeToNetwork (Lnet/minecraft/core/Registry;)Lnet/minecraft/tags/TagNetworkSerialization$NetworkPayload;
+accessible field net/minecraft/client/gui/components/PlayerTabOverlay header Lnet/minecraft/network/chat/Component;
+accessible field net/minecraft/client/gui/components/PlayerTabOverlay footer Lnet/minecraft/network/chat/Component;
+accessible field net/minecraft/client/gui/components/BossHealthOverlay events Ljava/util/Map;
+accessible field net/minecraft/client/multiplayer/ClientLevel$ClientLevelData isFlat Z
+
+# recording the local player
+accessible field net/minecraft/client/multiplayer/MultiPlayerGameMode destroyBlockPos Lnet/minecraft/core/BlockPos;
+accessible field net/minecraft/client/multiplayer/MultiPlayerGameMode destroyProgress F
+accessible field net/minecraft/client/multiplayer/MultiPlayerGameMode isDestroying Z
+accessible field net/minecraft/network/syncher/SynchedEntityData itemsById Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+
+# playback
+accessible field net/minecraft/world/entity/LivingEntity lerpSteps I
+accessible field net/minecraft/world/entity/LivingEntity lerpX D
+accessible field net/minecraft/world/entity/LivingEntity lerpY D
+accessible field net/minecraft/world/entity/LivingEntity lerpZ D
+accessible field net/minecraft/world/entity/LivingEntity lerpYRot D
+accessible field net/minecraft/world/entity/LivingEntity lerpXRot D
+accessible field net/minecraft/world/entity/LivingEntity lyHeadRot D
+accessible field net/minecraft/world/entity/LivingEntity lerpHeadSteps I
+accessible field net/minecraft/client/renderer/LevelRenderer destroyingBlocks Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+accessible field net/minecraft/client/renderer/LevelRenderer destructionProgress Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;
+accessible field net/minecraft/client/renderer/LightTexture updateLightTexture Z
+accessible field net/minecraft/client/Minecraft timer Lnet/minecraft/client/Timer;
+accessible field net/minecraft/client/Minecraft pause Z
+mutable field net/minecraft/client/Minecraft pause Z
+accessible field net/minecraft/network/Connection channel Lio/netty/channel/Channel;
+accessible field net/minecraft/world/level/biome/BiomeManager biomeZoomSeed J
+accessible method net/minecraft/client/multiplayer/ClientLevel getAllMapData ()Ljava/util/Map;
+accessible method net/minecraft/client/particle/ParticleEngine clearParticles ()V
+accessible field com/mojang/blaze3d/platform/Window framebufferWidth I
+accessible field com/mojang/blaze3d/platform/Window framebufferHeight I
+accessible method com/mojang/blaze3d/platform/Window refreshFramebufferSize ()V
+accessible field net/minecraft/client/gui/screens/PauseScreen showPauseMenu Z
+accessible field net/minecraft/client/renderer/GameRenderer fov F
+accessible field net/minecraft/client/renderer/GameRenderer oldFov F
+accessible field net/minecraft/client/Camera eyeHeight F
+accessible field net/minecraft/client/Camera eyeHeightOld F

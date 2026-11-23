@@ -1,7 +1,6 @@
 package com.flurben.flashback120.recording;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -123,7 +122,7 @@ public final class WorldSnapshot {
             player.isReducedDebugInfo(),
             player.shouldShowDeathScreen(),
             level.isDebug(),
-            level.getLevelData() instanceof ClientLevel.ClientLevelData d && d.isFlat,
+            level.getLevelData().isFlat,
             player.getLastDeathLocation(),
             player.getPortalCooldown()));
 
@@ -198,7 +197,7 @@ public final class WorldSnapshot {
         sorted.sort((a, b) -> Integer.compare(distance(a, cx, cz), distance(b, cx, cz)));
         for (LevelChunk chunk : sorted) {
             try {
-                chunkPackets.add(new ClientboundLevelChunkWithLightPacket(chunk, level.getLightEngine(), new BitSet(), new BitSet()));
+                chunkPackets.add(new ClientboundLevelChunkWithLightPacket(chunk, level.getLightEngine(), null, null));
             } catch (Throwable t) {
                 Flashback120.LOG.debug("Unable to snapshot chunk {}", chunk.getPos(), t);
             }

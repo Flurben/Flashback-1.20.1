@@ -111,13 +111,13 @@ public final class Recorder {
     public void attach() throws Exception {
         Callable<Void> task = () -> {
             handler = CaptureHandler.create(Recorder.this, connection);
-            handler.install(connection.channel().pipeline());
+            handler.install(connection.channel.pipeline());
             return null;
         };
-        if (connection.channel().eventLoop().inEventLoop()) {
+        if (connection.channel.eventLoop().inEventLoop()) {
             task.call();
         } else {
-            Future<Void> f = connection.channel().eventLoop().submit(task);
+            Future<Void> f = connection.channel.eventLoop().submit(task);
             f.get(10, TimeUnit.SECONDS);
         }
     }
@@ -289,8 +289,8 @@ public final class Recorder {
             finished = true;
         }
         try {
-            if (connection.channel() != null && connection.channel().isOpen()) {
-                connection.channel().eventLoop().execute(() -> CaptureHandler.uninstall(connection.channel().pipeline()));
+            if (connection.channel != null && connection.channel.isOpen()) {
+                connection.channel.eventLoop().execute(() -> CaptureHandler.uninstall(connection.channel.pipeline()));
             }
         } catch (Throwable ignored) {}
         queue.close();
